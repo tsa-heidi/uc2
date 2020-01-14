@@ -35,6 +35,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         input_to_id.put("cm", "length");
         input_to_id.put("mm", "length");
 
+        ArrayList<String> length_units = new ArrayList<>();
+        length_units.add("km");
+        length_units.add("hm");
+        length_units.add("dam");
+        length_units.add("m");
+        length_units.add("dm");
+        length_units.add("cm");
+        length_units.add("mm");
+
+        units.put("length",length_units);
+
+        factors.put("length", 10);
+
         restartButton = (Button) findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
         inputNumber = (TextView) findViewById(R.id.input_num);
