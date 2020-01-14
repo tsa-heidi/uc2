@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
         input_to_id.put("hm", "length");
         input_to_id.put("dam", "length");
         input_to_id.put("m", "length");
-        input_to_id.put("dm, length");
-        input_to_id.put("cm, length");
-        input_to_id.put("mm, length");
+        input_to_id.put("dm", "length");
+        input_to_id.put("cm", "length");
+        input_to_id.put("mm", "length");
+
 
 
     }
