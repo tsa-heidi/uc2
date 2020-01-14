@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int arr[] = {10,20,30,40,50};
-        int key = 30;
+        int target = 30;
         int last=arr.length-1;
 
 
@@ -58,12 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outputNumber.setText("");
     }
 
-    public static void binarySearch(int arr[], int first, int last, int key){
+    public static void binarySearch(int arr[], int first, int last, int target){
         int mid = (first + last)/2;
         while (first <= last){
-            if (arr[mid] < key){
+            if (arr[mid] < target){
                 first = mid + 1;
-            } else if (arr[mid] == key){
+            } else if (arr[mid] == target){
                 System.out.println("Function" +
                         " found at index: " + mid);
                 break;
@@ -75,12 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (first > last){
             System.out.println("Function not found!");
         }
-        binarySearch(arr,0,last,key);
+        binarySearch(arr,0,last,target);
 
     }
 
-    public static int linearSearch(int arr[], int key){
-        int result = linearSearch(arr, key);
+    public static int linearSearch(int arr[], int target){
+        int result = linearSearch(arr, target);
         if(result == -1)
             System.out.print("Function not present!");
         else
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int n = arr.length;
             for(int i = 0; i < n; i++){
-                if(arr[i] == key)
+                if(arr[i] == target)
                     return i;
             }
             return -1;
