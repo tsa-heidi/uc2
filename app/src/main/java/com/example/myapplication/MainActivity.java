@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             if (arr[mid] < key){
                 first = mid + 1;
             } else if (arr[mid] == key){
-                System.out.println("Function is found at index: " + mid);
+                System.out.println("Function found at index: " + mid);
                 break;
             } else{
                 last = mid - 1;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             mid = (first + last)/2;
         }
         if (first > last){
-            System.out.println("Function is not found!");
+            System.out.println("Function not found!");
         }
         binarySearch(arr,0,last,key);
 
@@ -67,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
     public static int linearSearch(int arr[], int key){
         int result = linearSearch(arr, key);
         if(result == -1)
-            System.out.print("Function is not present in array");
+            System.out.print("Function not present!");
         else
-            System.out.print("Function is present at index " + result);
+            System.out.print("Function is present!" + result);
 
 
         int n = arr.length;
