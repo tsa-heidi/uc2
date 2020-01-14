@@ -5,4 +5,15 @@
     <string name="Input_number">Input Number</string>
     <string name="display_text">Calculations:</string>
     <string name="restart_button">RESTART</string>
+    <string name="unit_prompt">Choose your units</string>
+
+    <string-array name="units_arrays">
+        <item>km</item>
+        <item>dm</item>
+        <item>dam</item>
+        <item>m</item>
+        <item>dm</item>
+        <item>cm</item>
+        <item>New mm</item>
+    </string-array>
 </resources>

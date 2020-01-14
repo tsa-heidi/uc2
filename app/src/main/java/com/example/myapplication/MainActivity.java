@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button restartButton;
     private TextView inputNumber;
     private TextView outputNumber;
+    private Spinner spinner1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         restartButton.setOnClickListener(this);
         inputNumber = (TextView) findViewById(R.id.input_num);
         outputNumber = (TextView) findViewById(R.id.output_num);
+
     }
     public void onClick(View view){
         inputNumber.setText("Input Number");
