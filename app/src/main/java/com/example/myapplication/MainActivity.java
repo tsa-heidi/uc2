@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView inputNumber;
     private TextView outputNumber;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         input_to_id.put("hm", "length");
         input_to_id.put("dam", "length");
         input_to_id.put("m", "length");
-        input_to_id.put("dm", "length");
-        input_to_id.put("cm", "length");
-        input_to_id.put("mm", "length");
+        input_to_id.put("dm, length");
+        input_to_id.put("cm, length");
+        input_to_id.put("mm, length");
 
         restartButton = (Button) findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
@@ -51,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (arr[mid] < key){
                 first = mid + 1;
             } else if (arr[mid] == key){
-                System.out.println("Function" +
-                        " found at index: " + mid);
+                System.out.println("Function found at index: " + mid);
                 break;
             } else{
                 last = mid - 1;
