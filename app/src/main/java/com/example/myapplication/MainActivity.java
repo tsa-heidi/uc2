@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static void linearSearch(int){
-
+    public static void linearSearch(int hello){
+        System.out.println("Hello");
     }
 
     //sample
