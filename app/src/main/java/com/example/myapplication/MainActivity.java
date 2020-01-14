@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    private HashMap<String, String> input_to_id;
-    private HashMap<String, ArrayList> units;
+    HashMap<String, String> input_to_id = new HashMap<String,String>();
+    HashMap<String, ArrayList> units;
 
 
     @Override
@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        input_to_id.put("km", "length");
-//        input_to_id.put("hm", "length");
-//        input_to_id.put("dm", "length");
-//        input_to_id.put("m", "length");
+        input_to_id.put("km", "length");
+        input_to_id.put("hm", "length");
+        input_to_id.put("dm", "length");
+        input_to_id.put("m", "length");
     }
 
     public static void binarySearch(int arr[], int first, int last, int key){
