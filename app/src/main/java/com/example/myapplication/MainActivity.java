@@ -16,20 +16,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button restartButton;
     private TextView inputNumber;
     private TextView outputNumber;
+public class MainActivity extends AppCompatActivity {
+    HashMap<String, String> input_to_id = new HashMap<>();
+    HashMap<String, ArrayList> units = new HashMap<>();
+    HashMap<String, Integer> factors = new HashMap<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int arr[] = {10,20,30,40,50};
+        int key = 30;
+        int last=arr.length-1;
+
 
         input_to_id.put("km", "length");
         input_to_id.put("hm", "length");
         input_to_id.put("dam", "length");
         input_to_id.put("m", "length");
-//        input_to_id.put("dm, length");
-//        input_to_id.put("cm, length");
-//        input_to_id.put("mm, length");
+        input_to_id.put("dm, length");
+        input_to_id.put("cm, length");
+        input_to_id.put("mm, length");
 
         restartButton = (Button) findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
@@ -47,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (arr[mid] < key){
                 first = mid + 1;
             } else if (arr[mid] == key){
-                System.out.println("Function is found at index: " + mid);
+                System.out.println("Function found at index: " + mid);
                 break;
             } else{
                 last = mid - 1;
@@ -55,19 +63,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mid = (first + last)/2;
         }
         if (first > last){
-            System.out.println("Function is not found!");
+            System.out.println("Function not found!");
         }
+        binarySearch(arr,0,last,key);
+
     }
 
-//    public static void linearSearch(int hello){
-//       int once = hello;
-//    }
+    public static int linearSearch(int arr[], int key){
+        int result = linearSearch(arr, key);
+        if(result == -1)
+            System.out.print("Function not present!");
+        else
+            System.out.print("Function is present!" + result);
 
-//    //sample
-//    public static void main(String args[]){
-//        int arr[] = {10,20,30,40,50};
-//        int key = 30;
-//        int last=arr.length-1;
-//        binarySearch(arr,0,last,key);
-//    }
+
+        int n = arr.length;
+            for(int i = 0; i < n; i++){
+                if(arr[i] == key)
+                    return i;
+            }
+            return -1;
+        }
+
+
+
 }
