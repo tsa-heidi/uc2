@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         input_to_id.put("hm", "length");
         input_to_id.put("dam", "length");
         input_to_id.put("m", "length");
-        input_to_id.put("dm, length");
-        input_to_id.put("cm, length");
-        input_to_id.put("mm, length");
+        input_to_id.put("dm", "length");
+        input_to_id.put("cm", "length");
+        input_to_id.put("mm", "length");
 
         restartButton = (Button) findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
