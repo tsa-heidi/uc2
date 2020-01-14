@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        input_to_id.put("km", "length");
-        input_to_id.put("hm", "length");
-        input_to_id.put("dm", "length");
-        input_to_id.put("m", "length");
+//        input_to_id.put("km", "length");
+//        input_to_id.put("hm", "length");
+//        input_to_id.put("dm", "length");
+//        input_to_id.put("m", "length");
     }
 
     public static void binarySearch(int arr[], int first, int last, int key){
