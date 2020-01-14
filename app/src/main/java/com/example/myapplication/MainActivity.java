@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    HashMap<String, String> input_to_id = new HashMap<String,String>();
-    HashMap<String, ArrayList> units = new HashMap<String, ArrayList>();
-    HashMap<String, Integer> factors = new HashMap<String, Integer>();
+    HashMap<String, String> input_to_id = new HashMap<>();
+    HashMap<String, ArrayList> units = new HashMap<>();
+    HashMap<String, Integer> factors = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
