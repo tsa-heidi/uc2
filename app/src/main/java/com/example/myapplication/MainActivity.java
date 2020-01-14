@@ -11,16 +11,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    HashMap<String, String> input_to_id = new HashMap<String,String>();
-    HashMap<String, ArrayList> units = new HashMap<String, ArrayList>();
-    private Button restartButton;
-    private TextView inputNumber;
-    private TextView outputNumber;
-public class MainActivity extends AppCompatActivity {
     HashMap<String, String> input_to_id = new HashMap<>();
     HashMap<String, ArrayList> units = new HashMap<>();
     HashMap<String, Integer> factors = new HashMap<>();
-
+    private Button restartButton;
+    private TextView inputNumber;
+    private TextView outputNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             if (arr[mid] < key){
                 first = mid + 1;
             } else if (arr[mid] == key){
-                System.out.println("Function found at index: " + mid);
+                System.out.println("Function" +
+                        " found at index: " + mid);
                 break;
             } else{
                 last = mid - 1;
