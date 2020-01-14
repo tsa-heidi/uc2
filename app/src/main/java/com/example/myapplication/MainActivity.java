@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int arr[] = {10,20,30,40,50};
+        int key = 30;
+        int last=arr.length-1;
 
         input_to_id.put("km", "length");
         input_to_id.put("hm", "length");
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         if (first > last){
             System.out.println("Function is not found!");
         }
+        binarySearch(arr,0,last,key);
+
     }
 
     public static int linearSearch(int arr[], int x){
@@ -66,11 +71,4 @@ public class MainActivity extends AppCompatActivity {
         return x;
     }
 
-    //sample
-    public static void main(String args[]){
-        int arr[] = {10,20,30,40,50};
-        int key = 30;
-        int last=arr.length-1;
-        binarySearch(arr,0,last,key);
-    }
 }
