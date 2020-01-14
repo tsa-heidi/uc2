@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     HashMap<String, String> input_to_id = new HashMap<String,String>();
-    HashMap<String, ArrayList> units;
+    HashMap<String, ArrayList> units = new HashMap<String, ArrayList>();
 
 
     @Override
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         input_to_id.put("dm, length");
         input_to_id.put("cm, length");
         input_to_id.put("mm, length");
+
+
     }
 
     public static void binarySearch(int arr[], int first, int last, int key){
