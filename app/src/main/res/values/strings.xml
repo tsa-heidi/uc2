@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="input_text">Input:</string>
+    <string name="output_value">Output:</string>
+    <string name="Input_number">Input Number</string>
+    <string name="display_text">Calculations:</string>
+    <string name="restart_button">RESTART</string>
 </resources>
