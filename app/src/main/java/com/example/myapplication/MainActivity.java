@@ -16,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        input_to_id.put("England", "London");
+        input_to_id.put("Germany", "Berlin");
+        input_to_id.put("Norway", "Oslo");
+        input_to_id.put("USA", "Washington DC");
     }
 
     public static void binarySearch(int arr[], int first, int last, int key){
