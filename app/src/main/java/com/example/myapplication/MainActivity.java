@@ -46,8 +46,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static void linearSearch(int hello){
-        System.out.println("Hello");
+    public static int linearSearch(int arr[], int x){
+        int n = arr.length;
+        for (int i = 0; i < n; i++){
+
+        }
+
+        return x;
     }
 
     //sample
