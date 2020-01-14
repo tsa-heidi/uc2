@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, ArrayList> units = new HashMap<>();
     HashMap<String, Integer> factors = new HashMap<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         int arr[] = {10,20,30,40,50};
         int key = 30;
         int last=arr.length-1;
+
 
         input_to_id.put("km", "length");
         input_to_id.put("hm", "length");
@@ -62,13 +64,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static int linearSearch(int arr[], int x){
-        int n = arr.length;
-        for (int i = 0; i < n; i++){
+    public static int linearSearch(int arr[], int key){
+        int result = linearSearch(arr, key);
+        if(result == -1)
+            System.out.print("Function is not present in array");
+        else
+            System.out.print("Function is present at index " + result);
 
+
+        int n = arr.length;
+            for(int i = 0; i < n; i++){
+                if(arr[i] == key)
+                    return i;
+            }
+            return -1;
         }
 
-        return x;
-    }
+
 
 }
