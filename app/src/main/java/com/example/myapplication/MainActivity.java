@@ -14,5 +14,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Add keys and values (Country, City)
+        input_to_id.put("km", "length");
+        input_to_id.put("hm", "length");
+        input_to_id.put("da m", "length");
+        input_to_id.put("m", "length");
+        input_to_id.put("dm", "length");
+        input_to_id.put("mm", "length");
     }
+
 }
