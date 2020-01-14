@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    HashMap<String, String> input_to_id = new HashMap<String,String>();
-    HashMap<String, ArrayList> units = new HashMap<String, ArrayList>();
-
+    HashMap<String, String> input_to_id = new HashMap<>();
+    HashMap<String, ArrayList> units = new HashMap<>();
+    HashMap<String, Integer> factors = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,21 @@ public class MainActivity extends AppCompatActivity {
         input_to_id.put("hm", "length");
         input_to_id.put("dam", "length");
         input_to_id.put("m", "length");
-        input_to_id.put("dm, length");
-        input_to_id.put("cm, length");
-        input_to_id.put("mm, length");
+        input_to_id.put("dm", "length");
+        input_to_id.put("cm", "length");
+        input_to_id.put("mm", "length");
 
+        ArrayList<String> length_units = new ArrayList<String>();
+        length_units.add("km");
+        length_units.add("hm");
+        length_units.add("dam");
+        length_units.add("m");
+        length_units.add("dm");
+        length_units.add("cm");
+        length_units.add("mm");
+
+        units.put("length", length_units);
+        factors.put("length", 10);
 
     }
 
