@@ -76,12 +76,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onNothingSelected(AdapterView<?>parent){
-
+        //leave blank
     }
     @Override
     public void onClick(View view){
         switch(view.getId()){
-            case R.id.restart:
+            case R.id.restart://restart button
                 inputNumber.setText("");
                 outputNumber.append("");
                 break;
@@ -94,13 +94,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     private void processInputNumber(EditText editText){
-        String inputNum = editText.getText().toString();
-        //System.out.println(inputNum);
+        String inputNum = editText.getText().toString(); //this should get the inputted number as a string
+
     }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
+        String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
+        System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
-        int distance = 0;
+        int distance = 1;
         String output_string = "1" + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
@@ -108,15 +110,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 calculateText.append(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
-                distance = distance*String.valueOf(factor);
+                distance = distance *(factor);
+                outputNumber.setText(distance);
             }
         } else {
             while (pointer2 <= index1) {
+                System.out.println("case21");
                 output_string += "*[(1" + arr.get(pointer2) + ")/(" + String.valueOf(factor) + arr.get(pointer1) + ")]";
                 calculateText.append(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
-                distance = distance*String.valueOf(factor);
+                distance = distance*(factor);
+                outputNumber.setText(distance);
             }
         }
         return output_string;
