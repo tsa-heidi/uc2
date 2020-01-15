@@ -5,13 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static java.lang.Math.min;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     HashMap<String, String> input_to_id = new HashMap<>();
@@ -20,7 +17,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button restartButton;
     private TextView inputNumber;
     private TextView outputNumber;
-    private Spinner spinner1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +49,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         restartButton.setOnClickListener(this);
         inputNumber = (TextView) findViewById(R.id.input_num);
         outputNumber = (TextView) findViewById(R.id.output_num);
-        String test_compute = compute(length_units, 5,2,10);
-        System.out.println(test_compute);
     }
     public void onClick(View view){
         inputNumber.setText("Input Number");
         outputNumber.setText("");
     }
+
+
+
+
+
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
         System.out.println(pointer1);
