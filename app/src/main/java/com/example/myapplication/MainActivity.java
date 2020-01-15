@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView inputNumber;
     private TextView outputNumber;
     private Spinner spinner1;
+    private Button calculateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         restartButton = findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
+        calculateButton = findViewById(R.id.convert);
+        calculateButton.setOnClickListener(this);
         inputNumber =  findViewById(R.id.input_num);
         outputNumber = findViewById(R.id.output_num);
 
@@ -70,20 +74,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
     @Override
-    public void onClick(View view){
-        inputNumber.setText("");
-        outputNumber.append("");
-    }
-
-
-
-
-
-
     public void onNothingSelected(AdapterView<?>parent){
 
     }
-
+    @Override
+    public void onClick(View view){
+        switch(view.getId()){
+            case R.id.restart:
+                inputNumber.setText("");
+                outputNumber.append("");
+                break;
+            case R.id.convert:
+                compute();
+        }
+    }
+    private void processWord(EditText editText){
+        String inputNum = editText.getText().toString();
+        //System.out.println(inputNum);
+    }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
         System.out.println(pointer1);

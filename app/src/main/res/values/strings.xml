@@ -6,6 +6,7 @@
     <string name="display_text">Calculations:</string>
     <string name="restart_button">RESTART</string>
     <string name="calculations_text" />
+    <string name="convert_button">Calculate</string>
 
 
     <string-array name="units_array">
