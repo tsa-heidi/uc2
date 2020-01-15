@@ -4,16 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static java.lang.Math.min;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     HashMap<String, String> input_to_id = new HashMap<>();
     HashMap<String, ArrayList> units = new HashMap<>();
     HashMap<String, Integer> factors = new HashMap<>();
@@ -49,17 +49,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         factors.put("length", 10);
 
+        String test_compute = compute(length_units, 5,2,10);
+        System.out.println(test_compute);
+
         restartButton = (Button) findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
         inputNumber = (TextView) findViewById(R.id.input_num);
         outputNumber = (TextView) findViewById(R.id.output_num);
-        String test_compute = compute(length_units, 5,2,10);
-        System.out.println(test_compute);
+
+        spinner1 = (Spinner) findViewById(R.id.units1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.units  ,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter);
+        spinner1.setOnItemSelectedListener(this);
+
     }
+
+    public void onItemSelected(AdapterView<?>parent, View view, int position, long id ){
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
     public void onClick(View view){
         inputNumber.setText("Input Number");
         outputNumber.setText("");
     }
+
+    public void onNothingSelected(AdapterView<?>parent){
+
+    }
+
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
         System.out.println(pointer1);
