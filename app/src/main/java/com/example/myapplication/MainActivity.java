@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView inputNumber;
     private TextView outputNumber;
     private Spinner spinner1;
+    private Spinner spinner2;
     private Button calculateButton;
     private TextView calculateText;
 
@@ -63,10 +64,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outputNumber = findViewById(R.id.output_num);
 
         spinner1 =  findViewById(R.id.units1);
+        spinner2 = findViewById(R.id.units2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.units_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
+        spinner2.setAdapter(adapter);
         spinner1.setOnItemSelectedListener(this);
+        spinner2.setOnItemSelectedListener(this);
 
     }
     @Override
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.convert:
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
+                String unitText2 = spinner2.getSelectedItem().toString();
                 String input_id = input_to_id.get(unitText);
                 int current_factor = factors.get(input_id);
                 ArrayList<Integer> current_units = units.get(input_id);
@@ -99,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
-        String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
         System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
         int distance = 1;
