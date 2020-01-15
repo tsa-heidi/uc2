@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 inputNumber.setText("");
                 outputNumber.append("");
                 break;
-            case R.id.convert://calculate/convert button
+            case R.id.convert:
+                String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
                 //compute();
         }
     }
@@ -98,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
         System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
+        int distance = 1;
         String output_string = "1" + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
@@ -105,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 calculateText.append(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
+                distance = distance *(factor);
+                outputNumber.setText(distance);
             }
         } else {
             while (pointer2 <= index1) {
@@ -113,6 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 calculateText.append(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
+                distance = distance*(factor);
+                outputNumber.setText(distance);
             }
         }
         return output_string;
