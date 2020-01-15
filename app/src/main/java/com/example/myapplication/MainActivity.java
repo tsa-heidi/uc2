@@ -86,15 +86,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 outputNumber.append("");
                 break;
             case R.id.convert:
-                compute();
+                //compute();
         }
     }
-    private void processWord(EditText editText){
+    private void processInputNumber(EditText editText){
         String inputNum = editText.getText().toString();
         //System.out.println(inputNum);
     }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
+        String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
+
         System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
         int distance = 0;
