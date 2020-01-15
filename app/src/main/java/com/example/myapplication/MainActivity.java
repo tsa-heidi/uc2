@@ -76,27 +76,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onNothingSelected(AdapterView<?>parent){
-
+        //leave blank
     }
     @Override
     public void onClick(View view){
         switch(view.getId()){
-            case R.id.restart:
+            case R.id.restart://restart button
                 inputNumber.setText("");
                 outputNumber.append("");
                 break;
-            case R.id.convert:
+            case R.id.convert://calculate/convert button
                 //compute();
         }
     }
     private void processInputNumber(EditText editText){
-        String inputNum = editText.getText().toString();
-        //System.out.println(inputNum);
+        String inputNum = editText.getText().toString(); //this should get the inputted number as a string
+
     }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
         String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
-
         System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
         String output_string = "1" + arr.get(index1);
