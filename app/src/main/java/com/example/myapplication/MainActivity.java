@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int pointer1 = Math.min(index1,index2);
         System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
+        int distance = 0;
         String output_string = "1" + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
@@ -104,14 +105,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 calculateText.append(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
+                distance = distance*String.valueOf(factor);
             }
         } else {
             while (pointer2 <= index1) {
-                System.out.println("case21");
                 output_string += "*[(1" + arr.get(pointer2) + ")/(" + String.valueOf(factor) + arr.get(pointer1) + ")]";
                 calculateText.append(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
+                distance = distance*String.valueOf(factor);
             }
         }
         return output_string;
