@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String test_compute = compute(length_units, 5,2,10);
         System.out.println(test_compute);
 
-        restartButton = (Button) findViewById(R.id.restart);
+        restartButton = findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
-        inputNumber = (TextView) findViewById(R.id.input_num);
-        outputNumber = (TextView) findViewById(R.id.output_num);
+        inputNumber =  findViewById(R.id.input_num);
+        outputNumber = findViewById(R.id.output_num);
 
-        spinner1 = (Spinner) findViewById(R.id.units1);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.units_array ,android.R.layout.simple_spinner_item);
+        spinner1 =  findViewById(R.id.units1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.units_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
         spinner1.setOnItemSelectedListener(this);
@@ -71,9 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View view){
-        inputNumber.setText("Input Number");
-        outputNumber.setText("");
+        inputNumber.setText("");
+        outputNumber.append("");
     }
+
+
+
+
+
 
     public void onNothingSelected(AdapterView<?>parent){
 

@@ -25,10 +25,10 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/input_text"
+        android:hint="@string/Input_number"
         android:inputType="textPersonName"
-        android:text="@string/input_text"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintStart_toEndOf="@+id/input_text"
         app:layout_constraintTop_toTopOf="parent"
@@ -145,4 +145,17 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="338dp"
+        android:layout_height="343dp"
+        android:layout_marginBottom="92dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.968" />
 </androidx.constraintlayout.widget.ConstraintLayout>
