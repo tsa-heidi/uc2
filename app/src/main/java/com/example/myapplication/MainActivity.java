@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.convert:
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
-
+                String input_id = input_to_id.get(unitText);
+                int current_factor = factors.get(input_id);
+                ArrayList<Integer> current_units = units.get(input_id);
                 //compute();
         }
     }
