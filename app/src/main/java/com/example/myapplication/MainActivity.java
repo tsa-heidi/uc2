@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 outputNumber.append("");
                 break;
             case R.id.convert:
+                String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
+
                 //compute();
         }
     }
@@ -95,9 +97,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
-        String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
-
-        System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
         int distance = 0;
         String output_string = "1" + arr.get(index1);
