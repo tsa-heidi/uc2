@@ -5,6 +5,7 @@
     <string name="Input_number">Input Number</string>
     <string name="display_text">Calculations:</string>
     <string name="restart_button">RESTART</string>
+    <string name="calculations_text" />
 
 
     <string-array name="units_array">

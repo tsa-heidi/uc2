@@ -64,12 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spinner1.setOnItemSelectedListener(this);
 
     }
-
+    @Override
     public void onItemSelected(AdapterView<?>parent, View view, int position, long id ){
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
-
+    @Override
     public void onClick(View view){
         inputNumber.setText("");
         outputNumber.append("");
