@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView calculateText;
     private TextView simplifiedText;
     private Button expandButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spinner2.setOnItemSelectedListener(this);
 
     }
+
+
+
+
     @Override
     public void onItemSelected(AdapterView<?>parent, View view, int position, long id ){
         String text = parent.getItemAtPosition(position).toString();
