@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.restart://restart button
                 inputNumber.setText("");
-                outputNumber.append("");
+                outputNumber.setText("");
                 calculateText.setText("");
                 break;
             case R.id.convert:
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int input_index = current_units.indexOf(unitText);
                 int output_index = current_units.indexOf(unitText2);
                 String display = compute(current_units, input_index, output_index, current_factor);
-                calculateText.setText(display);
+                calculateText.setText(""+display);
                 //System.out.println(display);
                 break;
         }
@@ -126,13 +126,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else {
             while (pointer2 <= index1) {
-                System.out.println("case21");
+                //System.out.println("case21");
                 output_string += "*[(1" + arr.get(pointer2) + ")/(" + String.valueOf(factor) + arr.get(pointer1) + ")]";
-                calculateText.append(output_string);
+                calculateText.setText(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance*(factor);
-                outputNumber.setText(distance);
+                outputNumber.setText(""+distance);
             }
         }
         return output_string;
