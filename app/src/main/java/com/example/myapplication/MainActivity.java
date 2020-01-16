@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.restart://restart button
                 inputNumber.setText("");
                 outputNumber.append("");
+                calculateText.setText("");
                 break;
             case R.id.convert:
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
@@ -100,7 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int input_index = current_units.indexOf(unitText);
                 int output_index = current_units.indexOf(unitText2);
                 String display = compute(current_units, input_index, output_index, current_factor);
-                System.out.println(display);
+                calculateText.setText(display);
+                //System.out.println(display);
                 break;
         }
     }
