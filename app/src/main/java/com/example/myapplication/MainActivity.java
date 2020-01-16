@@ -106,11 +106,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    private void processInputNumber(EditText editText){
-        String inputNum = editText.getText().toString(); //this should get the inputted number as a string
 
-    }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
+        String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
+
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
         int distance = 1;
@@ -118,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (index1 < index2) {
             while (pointer2 <= index2) {
                 output_string += "*[(" + String.valueOf(factor) + arr.get(pointer2) + ")/(1" + arr.get(pointer1) + ")]";
-                calculateText.setText(output_string);
+                //calculateText.setText(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance *(factor);
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             while (pointer2 <= index1) {
                 //System.out.println("case21");
                 output_string += "*[(1" + arr.get(pointer2) + ")/(" + String.valueOf(factor) + arr.get(pointer1) + ")]";
-                calculateText.setText(output_string);
+                //calculateText.setText(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance*(factor);
