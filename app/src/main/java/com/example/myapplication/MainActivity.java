@@ -108,11 +108,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int input_index = current_units.indexOf(unitText);
                 int output_index = current_units.indexOf(unitText2);
                 compute(current_units, input_index, output_index, current_factor);
-                calculateText.setText(simplified_string);
+                simplifiedText.setText(simplified_string);
                 break;
             case R.id.expand:
-
-                simplifiedText.setText(output_string);
+                calculateText.setText(output_string);
                 break;
         }
     }
