@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
-        int distance = 1;
+        double distance = 1;
         String output_string = inputNum + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
@@ -129,10 +129,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //calculateText.setText(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
-                distance = distance*(factor);
+                distance = distance*(1/(factor));
             }
         }
         outputNumber.setText(""+Integer.parseInt(inputNum)*distance);
+        output_string+="="+String.valueOf(Integer.parseInt(inputNum)*distance)+arr.get(index2);
         return output_string;
     }
 }
