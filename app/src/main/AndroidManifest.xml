@@ -9,22 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Welcome">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@drawable/button_border" />
-
         <activity android:name=".Welcome" />
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
         <activity android:name=".MainActivity">
 
         </activity>
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@drawable/button_border" />
+
+
     </application>
 
 </manifest>
