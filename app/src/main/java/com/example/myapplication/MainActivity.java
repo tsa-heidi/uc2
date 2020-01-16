@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         restartButton.setOnClickListener(this);
         calculateButton = findViewById(R.id.convert);
         calculateButton.setOnClickListener(this);
+
         inputNumber =  findViewById(R.id.input_num);
         outputNumber = findViewById(R.id.output_num);
         calculateText = findViewById(R.id.calculateText);
