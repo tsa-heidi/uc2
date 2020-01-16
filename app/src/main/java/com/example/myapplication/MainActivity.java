@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Spinner spinner2;
     private Button calculateButton;
     private TextView calculateText;
+    private TextView simplifiedText;
+    private Button expandButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         restartButton.setOnClickListener(this);
         calculateButton = findViewById(R.id.convert);
         calculateButton.setOnClickListener(this);
+        expandButton = findViewById(R.id.expand);
+        expandButton.setOnClickListener(this);
 
         inputNumber =  findViewById(R.id.input_num);
         outputNumber = findViewById(R.id.output_num);
         calculateText = findViewById(R.id.calculateText);
+        simplifiedText = findViewById(R.id.simplified);
 
         spinner1 =  findViewById(R.id.units1);
         spinner2 = findViewById(R.id.units2);
@@ -91,8 +96,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 inputNumber.setText("");
                 outputNumber.setText("");
                 calculateText.setText("");
+                simplifiedText.setText("");
                 break;
             case R.id.convert:
+//                String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
+//                String unitText2 = spinner2.getSelectedItem().toString();
+//                String input_id = input_to_id.get(unitText);
+//                int current_factor = factors.get(input_id);
+//                ArrayList<String> current_units = units.get(input_id);
+//                int input_index = current_units.indexOf(unitText);
+//                int output_index = current_units.indexOf(unitText2);
+//                String display = compute(current_units, input_index, output_index, current_factor);
+//                calculateText.setText(""+display);
+                //System.out.println(display);
+                break;
+            case R.id.expand:
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
                 String unitText2 = spinner2.getSelectedItem().toString();
                 String input_id = input_to_id.get(unitText);
@@ -102,7 +120,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int output_index = current_units.indexOf(unitText2);
                 String display = compute(current_units, input_index, output_index, current_factor);
                 calculateText.setText(""+display);
-                //System.out.println(display);
                 break;
         }
     }

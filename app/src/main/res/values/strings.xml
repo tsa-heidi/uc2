@@ -10,6 +10,7 @@
     <string name="welcomeText">WELCOME</string>
     <string name="start_button">START</string>
     <string name="instructions">Hello! Welcome to our app! When you see the conversion part of our application, input your number and through the drop down menu, pick your units. Press calculate to see the full calculation of the conversion of units</string>
+    <string name="expand">EXPAND</string>
 
 
     <string-array name="units_array">
