@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     HashMap<String, String> input_to_id = new HashMap<>();
     HashMap<String, ArrayList> units = new HashMap<>();
     HashMap<String, Float> factors = new HashMap<>();
+    String simplified_string = "";
+    String output_string;
     private Button restartButton;
     private TextView inputNumber;
     private TextView outputNumber;
@@ -98,18 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 simplifiedText.setText("");
                 break;
             case R.id.convert:
-//                String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
-//                String unitText2 = spinner2.getSelectedItem().toString();
-//                String input_id = input_to_id.get(unitText);
-//                int current_factor = factors.get(input_id);
-//                ArrayList<String> current_units = units.get(input_id);
-//                int input_index = current_units.indexOf(unitText);
-//                int output_index = current_units.indexOf(unitText2);
-//                String display = compute(current_units, input_index, output_index, current_factor);
-//                calculateText.setText(""+display);
-                //System.out.println(display);
-                break;
-            case R.id.expand:
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
                 String unitText2 = spinner2.getSelectedItem().toString();
                 String input_id = input_to_id.get(unitText);
@@ -117,19 +107,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ArrayList<String> current_units = units.get(input_id);
                 int input_index = current_units.indexOf(unitText);
                 int output_index = current_units.indexOf(unitText2);
-                String display = compute(current_units, input_index, output_index, current_factor);
-                calculateText.setText(""+display);
+                compute(current_units, input_index, output_index, current_factor);
+                calculateText.setText(simplified_string);
+                break;
+            case R.id.expand:
+
+                simplifiedText.setText(output_string);
                 break;
         }
     }
 
-    public String compute(ArrayList<String> arr, int index1, int index2, float factor) {
+    public void compute(ArrayList<String> arr, int index1, int index2, float factor) {
         String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
 
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
         float distance = 1f;
-        String output_string = inputNum + arr.get(index1);
+        output_string = inputNum + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
                 output_string += "*[(" + String.valueOf(factor) + arr.get(pointer2) + ")/(1" + arr.get(pointer1) + ")]";
@@ -152,6 +146,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         float value = Float.valueOf(inputNum)*distance;
         String s = String.valueOf(value);
         output_string+="="+s+arr.get(index2);
-        return output_string;
+        simplified_string = inputNum+arr.get(index1)+"="+"("+distance+arr.get(index1)+")/(1"+arr.get(index2)+")="+s+arr.get(index2);
+
+
     }
 }
