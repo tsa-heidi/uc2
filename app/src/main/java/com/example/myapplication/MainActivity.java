@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateButton.setOnClickListener(this);
         inputNumber =  findViewById(R.id.input_num);
         outputNumber = findViewById(R.id.output_num);
+        calculateText = findViewById(R.id.calculateText);
 
         spinner1 =  findViewById(R.id.units1);
         spinner2 = findViewById(R.id.units2);
@@ -94,8 +95,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String unitText2 = spinner2.getSelectedItem().toString();
                 String input_id = input_to_id.get(unitText);
                 int current_factor = factors.get(input_id);
-                ArrayList<Integer> current_units = units.get(input_id);
-                //compute();
+                ArrayList<String> current_units = units.get(input_id);
+                int input_index = current_units.indexOf(unitText);
+                int output_index = current_units.indexOf(unitText2);
+                String display = compute(current_units, input_index, output_index, current_factor);
+                System.out.println(display);
         }
     }
     private void processInputNumber(EditText editText){
@@ -104,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
         int pointer1 = Math.min(index1,index2);
-        System.out.println(pointer1);
         int pointer2 = pointer1 + 1;
         int distance = 1;
         String output_string = "1" + arr.get(index1);
