@@ -118,11 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (index1 < index2) {
             while (pointer2 <= index2) {
                 output_string += "*[(" + String.valueOf(factor) + arr.get(pointer2) + ")/(1" + arr.get(pointer1) + ")]";
-                calculateText.append(output_string);
+                calculateText.setText(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance *(factor);
-                outputNumber.setText(distance);
+                outputNumber.setText(""+ distance);
             }
         } else {
             while (pointer2 <= index1) {
