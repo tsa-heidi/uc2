@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -133,20 +135,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             double value = Float.valueOf(inputNum)*distance;
             String s = String.valueOf(value);
             output_string+="="+s+arr.get(index2);
-            simplified_string = inputNum+arr.get(index1)+"*"+"("+distance+arr.get(index2)+")/(1"+arr.get(index1)+")="+s+arr.get(index2);
+            simplified_string = inputNum+ arr.get(index1)+"*"+"("+distance+arr.get(index2)+")/(1"+arr.get(index1)+")="+ s + arr.get(index2);
         } else {
             while (pointer2 <= index1) {
                 output_string += "*[(1" + arr.get(pointer1) + ")/(" + String.valueOf(factor) + arr.get(pointer2) + ")]";
                 pointer2 += 1;
                 pointer1 += 1;
-                System.out.println(distance+"distance");
+                //System.out.println(distance+"distance");
                 distance = distance*(1/(factor));
-                System.out.println((1/factor)+":ghjkljhg");
+                //System.out.println((1/factor)+":ghjkljhg");
             }
             double value = Double.parseDouble(inputNum)*distance;
             String s = String.valueOf(value);
-            output_string+="="+s+arr.get(index2);
-            simplified_string = inputNum+arr.get(index1)+"*"+"(1"+arr.get(index2)+")/("+Math.round(1/distance)+arr.get(index1)+")="+s+arr.get(index2);
+            output_string += "=" + s + arr.get(index2);
+            simplified_string = inputNum + arr.get(index1) + "*" + "(1"+ arr.get(index2)+")/(" + Math.round(1/distance) + arr.get(index1)+")=" + s + arr.get(index2);
         }
         outputNumber.setText(""+Integer.parseInt(inputNum)*distance);
     }
