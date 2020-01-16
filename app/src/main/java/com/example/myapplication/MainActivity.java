@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     HashMap<String, String> input_to_id = new HashMap<>();
     HashMap<String, ArrayList> units = new HashMap<>();
-    HashMap<String, Integer> factors = new HashMap<>();
+    HashMap<String, Float> factors = new HashMap<>();
     private Button restartButton;
     private TextView inputNumber;
     private TextView outputNumber;
@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         input_to_id.put("km", "length");
         input_to_id.put("hm", "length");
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         units.put("length",length_units);
 
-        factors.put("length", 10);
+        factors.put("length", 10.0f);
 
 //        String test_compute = compute(length_units, 5,2,10);
 //        System.out.println(test_compute);
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
                 String unitText2 = spinner2.getSelectedItem().toString();
                 String input_id = input_to_id.get(unitText);
-                int current_factor = factors.get(input_id);
+                float current_factor = factors.get(input_id);
                 ArrayList<String> current_units = units.get(input_id);
                 int input_index = current_units.indexOf(unitText);
                 int output_index = current_units.indexOf(unitText2);
@@ -107,12 +106,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public String compute(ArrayList<String> arr, int index1, int index2, int factor) {
+    public String compute(ArrayList<String> arr, int index1, int index2, float factor) {
         String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
 
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
-        double distance = 1;
+        float distance = 1f;
         String output_string = inputNum + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
@@ -133,7 +132,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         outputNumber.setText(""+Integer.parseInt(inputNum)*distance);
-        output_string+="="+String.valueOf(Integer.parseInt(inputNum)*distance)+arr.get(index2);
+        float value = Float.valueOf(inputNum)*distance;
+        String s = String.valueOf(value);
+        output_string+="="+s+arr.get(index2);
         return output_string;
     }
 }
