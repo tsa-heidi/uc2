@@ -28,7 +28,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Input_number"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintStart_toEndOf="@+id/input_text"
         app:layout_constraintTop_toTopOf="parent"

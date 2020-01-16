@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         length_units.add("cm");
         length_units.add("mm");
 
+
         units.put("length",length_units);
 
         factors.put("length", 10.0);
@@ -121,28 +122,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void compute(ArrayList<String> arr, int index1, int index2, double factor) {
         String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
-
+        System.out.println(inputNum);
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
         double distance = 1f;
         output_string = inputNum + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
-                output_string += "*[(" + String.valueOf(factor) + arr.get(pointer2) + ")/(1" + arr.get(pointer1) + ")]";
+                output_string += " * (" + String.valueOf(factor) + arr.get(pointer2) + ")/(1" + arr.get(pointer1) + ") ";
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance *(factor);
             }
             double value = Float.valueOf(inputNum)*distance;
             String s = String.valueOf(value);
-            output_string+="="+s+arr.get(index2);
+            output_string+="= "+s+arr.get(index2);
             BigDecimal bd = new BigDecimal(distance);
             bd = bd.round(new MathContext(3));
             double rounded_distance = bd.doubleValue();
-            simplified_string = inputNum+arr.get(index1)+"*"+"("+rounded_distance+arr.get(index2)+")/(1"+arr.get(index1)+")="+s+arr.get(index2);
+            simplified_string = inputNum+arr.get(index1)+" *"+" ("+rounded_distance+arr.get(index2)+")/(1"+arr.get(index1)+") = "+s+arr.get(index2);
         } else {
             while (pointer2 <= index1) {
-                output_string += "*[(1" + arr.get(pointer1) + ")/(" + String.valueOf(factor) + arr.get(pointer2) + ")]";
+                output_string += " * (1" + arr.get(pointer1) + ")/(" + String.valueOf(factor) + arr.get(pointer2) + ") ";
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance*(1/(factor));
@@ -152,10 +153,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             bd = bd.round(new MathContext(3));
             double rounded_value = bd.doubleValue();
             String s = String.valueOf(rounded_value);
-            output_string+="="+s+arr.get(index2);
-            simplified_string = inputNum+arr.get(index1)+"*"+"(1"+arr.get(index2)+")/("+Math.round(1/distance)+arr.get(index1)+")="+s+arr.get(index2);
+            output_string+="= "+s+arr.get(index2);
+            simplified_string = inputNum+arr.get(index1)+" *"+" (1"+arr.get(index2)+")/("+Math.round(1/distance)+arr.get(index1)+") = "+s+arr.get(index2);
         }
-        BigDecimal bd = new BigDecimal(Integer.parseInt(inputNum)*distance);
+        BigDecimal bd = new BigDecimal(Double.valueOf(inputNum)*distance);
         bd = bd.round(new MathContext(3));
         double rounded_output = bd.doubleValue();
         outputNumber.setText(""+rounded_output);
