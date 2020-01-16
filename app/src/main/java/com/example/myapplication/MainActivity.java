@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     HashMap<String, String> input_to_id = new HashMap<>();
     HashMap<String, ArrayList> units = new HashMap<>();
-    HashMap<String, Float> factors = new HashMap<>();
+    HashMap<String, Double> factors = new HashMap<>();
     String simplified_string = "";
     String output_string;
     private Button restartButton;
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         units.put("length",length_units);
 
-        factors.put("length", 10.0f);
+        factors.put("length", 10.0);
 
 //        String test_compute = compute(length_units, 5,2,10);
 //        System.out.println(test_compute);
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
                 String unitText2 = spinner2.getSelectedItem().toString();
                 String input_id = input_to_id.get(unitText);
-                float current_factor = factors.get(input_id);
+                Double current_factor = factors.get(input_id);
                 ArrayList<String> current_units = units.get(input_id);
                 int input_index = current_units.indexOf(unitText);
                 int output_index = current_units.indexOf(unitText2);
@@ -116,37 +116,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void compute(ArrayList<String> arr, int index1, int index2, float factor) {
+    public void compute(ArrayList<String> arr, int index1, int index2, double factor) {
         String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
 
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
-        float distance = 1f;
+        double distance = 1f;
         output_string = inputNum + arr.get(index1);
         if (index1 < index2) {
             while (pointer2 <= index2) {
                 output_string += "*[(" + String.valueOf(factor) + arr.get(pointer2) + ")/(1" + arr.get(pointer1) + ")]";
-                //calculateText.setText(output_string);
                 pointer2 += 1;
                 pointer1 += 1;
                 distance = distance *(factor);
             }
+            double value = Float.valueOf(inputNum)*distance;
+            String s = String.valueOf(value);
+            output_string+="="+s+arr.get(index2);
+            simplified_string = inputNum+arr.get(index1)+"*"+"("+distance+arr.get(index2)+")/(1"+arr.get(index1)+")="+s+arr.get(index2);
         } else {
             while (pointer2 <= index1) {
-                //System.out.println("case21");
-                output_string += "*[(1" + arr.get(pointer2) + ")/(" + String.valueOf(factor) + arr.get(pointer1) + ")]";
-                //calculateText.setText(output_string);
+                output_string += "*[(1" + arr.get(pointer1) + ")/(" + String.valueOf(factor) + arr.get(pointer2) + ")]";
                 pointer2 += 1;
                 pointer1 += 1;
+                System.out.println(distance+"distance");
                 distance = distance*(1/(factor));
+                System.out.println((1/factor)+":ghjkljhg");
             }
+            double value = Double.parseDouble(inputNum)*distance;
+            String s = String.valueOf(value);
+            output_string+="="+s+arr.get(index2);
+            simplified_string = inputNum+arr.get(index1)+"*"+"(1"+arr.get(index2)+")/("+Math.round(1/distance)+arr.get(index1)+")="+s+arr.get(index2);
         }
         outputNumber.setText(""+Integer.parseInt(inputNum)*distance);
-        float value = Float.valueOf(inputNum)*distance;
-        String s = String.valueOf(value);
-        output_string+="="+s+arr.get(index2);
-        simplified_string = inputNum+arr.get(index1)+"="+"("+distance+arr.get(index1)+")/(1"+arr.get(index2)+")="+s+arr.get(index2);
-
-
     }
 }
