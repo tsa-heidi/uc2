@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         factors.put("length", 10);
 
-        String test_compute = compute(length_units, 5,2,10);
-        System.out.println(test_compute);
-
         restartButton = findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
         calculateButton = findViewById(R.id.convert);
@@ -100,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int output_index = current_units.indexOf(unitText2);
                 String display = compute(current_units, input_index, output_index, current_factor);
                 System.out.println(display);
+                break;
         }
     }
     private void processInputNumber(EditText editText){
