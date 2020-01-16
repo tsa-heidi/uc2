@@ -10,9 +10,12 @@
 
 
     <string-array name="units_array">
-        <item>hr</item>
-        <item>min</item>
-        <item>sec</item>
-        <item>ms</item>
+        <item>km</item>
+        <item>hm</item>
+        <item>dam</item>
+        <item>m</item>
+        <item>dm</item>
+        <item>cm</item>
+        <item>mm</item>
     </string-array>
 </resources>

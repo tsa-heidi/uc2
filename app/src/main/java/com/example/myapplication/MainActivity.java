@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         factors.put("length", 10);
 
+//        String test_compute = compute(length_units, 5,2,10);
+//        System.out.println(test_compute);
+
         restartButton = findViewById(R.id.restart);
         restartButton.setOnClickListener(this);
         calculateButton = findViewById(R.id.convert);
