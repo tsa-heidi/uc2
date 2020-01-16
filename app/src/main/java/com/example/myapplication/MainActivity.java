@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void compute(ArrayList<String> arr, int index1, int index2, double factor) {
         String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
-        System.out.println(inputNum);
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
         double distance = 1f;
