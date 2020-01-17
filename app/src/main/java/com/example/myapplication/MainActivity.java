@@ -140,13 +140,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 pointer1 += 1;
                 distance = distance *(factor);
             }
-            double value = Float.valueOf(inputNum)*distance;
-            String s = String.valueOf(value);
-            output_string+="= "+s+arr.get(index2);
-            BigDecimal bd = new BigDecimal(distance);
+            double value = Double.parseDouble(inputNum)*distance;
+            BigDecimal bd = new BigDecimal(value);
             bd = bd.round(new MathContext(3));
-            double rounded_distance = bd.doubleValue();
-            simplified_string = inputNum+arr.get(index1)+" *"+" ("+rounded_distance+arr.get(index2)+")/(1"+arr.get(index1)+") = "+s+arr.get(index2);
+            double rounded_value = bd.doubleValue();
+            String s = String.valueOf(rounded_value);
+            output_string+="= "+s+arr.get(index2);
+            simplified_string = inputNum+arr.get(index1)+" *"+" ("+distance+arr.get(index2)+")/(1"+arr.get(index1)+") = "+s+arr.get(index2);
         } else {
             while (pointer2 <= index1) {
                 output_string += " * (1" + arr.get(pointer1) + ")/(" + String.valueOf(factor) + arr.get(pointer2) + ") \n";
