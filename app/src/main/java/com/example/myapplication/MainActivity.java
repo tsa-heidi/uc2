@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     HashMap<String, Double> factors = new HashMap<>();
     String simplified_string = "";
     String output_string;
+    boolean correct_input = false;
     private Button restartButton;
     private TextView inputNumber;
     private TextView outputNumber;
@@ -111,24 +113,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 simplifiedText.setText("");
                 break;
             case R.id.convert:
-                String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
-                String unitText2 = spinner2.getSelectedItem().toString();
-                String input_id = input_to_id.get(unitText);
-                Double current_factor = factors.get(input_id);
-                ArrayList<String> current_units = units.get(input_id);
-                int input_index = current_units.indexOf(unitText);
-                int output_index = current_units.indexOf(unitText2);
-                compute(current_units, input_index, output_index, current_factor);
-                simplifiedText.setText(simplified_string);
+                try{
+                    String unitText = spinner1.getSelectedItem().toString(); //this should get the selected item from the menu
+                    String unitText2 = spinner2.getSelectedItem().toString();
+                    String input_id = input_to_id.get(unitText);
+                    Double current_factor = factors.get(input_id);
+                    ArrayList<String> current_units = units.get(input_id);
+                    int input_index = current_units.indexOf(unitText);
+                    int output_index = current_units.indexOf(unitText2);
+                    compute(current_units, input_index, output_index, current_factor);
+                    calculateText.setText("");
+                    simplifiedText.setText(simplified_string);
+                    correct_input = true;
+                }catch (Exception e){
+                   correct_input = false;
+                   calculateText.setText("");
+                   simplifiedText.setText("");
+                }
                 break;
             case R.id.expand:
-                calculateText.setText(output_string);
+
+                try {
+                    if (correct_input == true) {
+                        calculateText.setText(output_string);
+                    }
+
+                }catch (Exception e){
+                    correct_input = false;
+                }
                 break;
         }
     }
 
     public void compute(ArrayList<String> arr, int index1, int index2, double factor) {
+
+
         String inputNum = inputNumber.getText().toString(); //this should get the inputted number as a string
+
         int pointer1 = Math.min(index1,index2);
         int pointer2 = pointer1 + 1;
         double distance = 1f;
