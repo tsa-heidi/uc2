@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             simplified_string = inputNum+arr.get(index1)+" *"+" (1"+arr.get(index2)+")/("+(1/distance)+arr.get(index1)+") = "+s+arr.get(index2);
         }
         BigDecimal bd = new BigDecimal(Double.valueOf(inputNum)*distance);
-        bd = bd.round(new MathContext(3));
+        bd = bd.round(new MathContext(5));
         double rounded_output = bd.doubleValue();
         outputNumber.setText(""+rounded_output);
     }
